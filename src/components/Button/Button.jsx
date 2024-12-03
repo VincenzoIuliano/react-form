@@ -1,7 +1,7 @@
 import style from './Button.module.css'
 
-export default function Button() {
+export default function Button({text='Leggi di piu'}) {
   return (
-    <button className={style.button}>Leggi di più</button>
+    <button className={style.button}>{text}</button>
   )
 }

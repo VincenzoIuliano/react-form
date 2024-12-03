@@ -2,10 +2,12 @@ import PostCard from '../PostCard/PostCard'
 import style from './Main.module.css'
 import { posts } from '../../posts.js'
 import Tags from '../tags/Tags.jsx'
+import { useState } from 'react'
+import Button from '../Button/Button.jsx'
 
 export default function Main() {
 
-  const publishedPosts = posts.filter((post) => post.published === true )
+  const [publishedPosts, setPublishedPosts ] = useState(posts.filter((post) => post.published === true ))
   const tags = []
 
   posts.forEach(post => {
@@ -22,11 +24,16 @@ export default function Main() {
 
   })
 
-  console.log('tags',tags)
 
   return (
     <main>
       <section className={style.section}>
+        <div className="container">
+          <form action="">
+            <input type="text" placeholder='Titolo del post' />
+            <Button />
+          </form>
+        </div>
         <div className="container">
           <h1 className={style.section_title}>Il mio blog</h1>
         </div>
