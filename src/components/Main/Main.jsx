@@ -24,13 +24,36 @@ export default function Main() {
 
   })
 
+  const [title,setTitle] = useState('')
+
+  function addPost (e) {
+
+    e.preventDefault()
+
+    const newTitle = title.trim()
+    if (newTitle === '') return
+
+    const post = {
+    id: 1,
+		title,
+		image: undefined,
+		content:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit animi unde quasi enim non esse ratione voluptas voluptate, officiis veritatis magni blanditiis possimus nobis cum id inventore corporis deserunt hic.',
+		tags: [],
+		published: true,
+    }
+
+    setPublishedPosts([...publishedPosts,post])
+
+  }
+
 
   return (
     <main>
       <section className={style.section}>
         <div className="container">
-          <form action="">
-            <input type="text" placeholder='Titolo del post' />
+          <form onSubmit={addPost} action="" className='inline-form'>
+            <input value={title} onChange={(e) => setTitle(e.target.value) } type="text" placeholder='Titolo del post' />
             <Button />
           </form>
         </div>
