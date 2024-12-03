@@ -34,7 +34,7 @@ export default function Main() {
     if (newTitle === '') return
 
     const post = {
-    id: 1,
+    id: Date.now(),
 		title,
 		image: undefined,
 		content:
@@ -44,9 +44,13 @@ export default function Main() {
     }
 
     setPublishedPosts([...publishedPosts,post])
+    setTitle('')
 
   }
 
+  function deletePost (id) {
+    setPublishedPosts(publishedPosts.filter(post => post.id !== id))
+  }
 
   return (
     <main>
@@ -67,7 +71,7 @@ export default function Main() {
           <div className="row">
             { publishedPosts.map((el) => (
               <div key={el.id} className="col-4">
-                <PostCard post={el} />
+                <PostCard onDelete={() =>deletePost(el.id)} post={el} />
               </div>
             ))}          
           </div>

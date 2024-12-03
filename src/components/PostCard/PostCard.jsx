@@ -2,8 +2,9 @@ import Button from '../Button/Button';
 import style from './PostCard.module.css'
 import placeholder from '../../assets/placeholder.webp'
 import Tags from '../tags/Tags';
+import TrashIcon from '../ui/trash-icon';
 
-export default function PostCard({ post = {} }) {
+export default function PostCard({ onDelete = () => {} ,post = {} }) {
 
   const { 
     id,
@@ -16,8 +17,6 @@ export default function PostCard({ post = {} }) {
 
   // console.log(id, title, image, tags, content, published)
 
-
-
   return (
     <div className={style.card}>
       <img className={style.image} src={image || placeholder} alt="" />
@@ -25,7 +24,12 @@ export default function PostCard({ post = {} }) {
         <h3 className={style.card_title}>{title}</h3>
         <Tags tags={tags} />
         <p className={style.card_description}>{ content }</p>
-        <Button />
+        <div className={style.card_footer}>
+          <Button />
+          <button onClick={onDelete} className={style.icon}>
+            <TrashIcon />
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -25,3 +25,27 @@
 	margin-bottom: 1rem;
 	line-height: 1.5;
 }
+
+
+.card_footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+}
+
+
+.icon {
+	padding: 0.25rem;
+	border-radius: 0.5rem;
+	background-color: antiquewhite;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+
+	* {
+		width: 18px;
+		height: 18px;
+	}
+}
